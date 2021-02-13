@@ -4,20 +4,27 @@
             <v-card>
                 <v-card-title>Signup</v-card-title>
                 <v-card-text>
-                    <form @submit.prevent="signup">
-                        <v-text-field label="Name" v-model="SignupData.Name" />
-                        <v-text-field
+                    <base-form @submit="signup" #default="{ invalid }">
+                        <base-text-field
+                            label="Name"
+                            v-model="SignupData.Name"
+                            rules="required"
+                        />
+                        <base-text-field
                             label="Email"
                             v-model="SignupData.Email"
+                            rules="required|email"
                         />
-                        <v-text-field
+                        <base-text-field
+                            type="password"
                             label="Password"
                             v-model="SignupData.Password"
+                            rules="required|min:8|max:36"
                         />
-                        <v-btn block type="submit" color="primary">
+                        <base-btn block type="submit" :disabled="invalid">
                             Signup
-                        </v-btn>
-                    </form>
+                        </base-btn>
+                    </base-form>
                 </v-card-text>
                 <v-card-actions class="justify-center">
                     New here?

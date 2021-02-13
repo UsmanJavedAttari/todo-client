@@ -3,6 +3,14 @@
         <v-container fluid class="fill-height">
             <router-view />
         </v-container>
+        <v-fade-transition>
+            <v-overlay :value="LoaderSrv.FullScreenLoader" z-index="300">
+                <div class="d-flex flex-column align-center">
+                    <v-progress-linear indeterminate color="white" rounded />
+                    <h2 v-html="LoaderSrv.FullScreenLoaderMessage" />
+                </div>
+            </v-overlay>
+        </v-fade-transition>
     </v-app>
 </template>
 

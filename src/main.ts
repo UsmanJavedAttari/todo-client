@@ -4,6 +4,7 @@ import vuetify from './plugins/vuetify';
 import AppComponent from './app.component';
 
 import './plugins';
+import './components';
 
 Vue.config.productionTip = false;
 
